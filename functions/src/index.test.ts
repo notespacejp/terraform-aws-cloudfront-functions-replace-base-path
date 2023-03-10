@@ -1,6 +1,6 @@
-import {describe, expect, test} from "vitest";
+import { describe, expect, test } from 'vitest'
 
-describe('call handler',() => {
+describe('call handler', () => {
     test('test', () => {
         expect('aa').toBe('aa')
     })

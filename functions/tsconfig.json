@@ -1,18 +1,16 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["ES2015"],
-    "allowJs": false,
-    "esModuleInterop": false,
-    "strict": true,
-    "module": "CommonJS",
-    "moduleResolution": "Node",
-    "noEmit": true,
-    "outDir": "./dist",
-    "incremental": true,
-    "skipLibCheck": true
-  },
-  "include": [
-    "src"
-  ]
+    "compilerOptions": {
+        "target": "ESNext",
+        "lib": ["ES2015"],
+        "allowJs": false,
+        "esModuleInterop": false,
+        "strict": true,
+        "module": "CommonJS",
+        "moduleResolution": "Node",
+        "noEmit": true,
+        "outDir": "./dist",
+        "incremental": true,
+        "skipLibCheck": true
+    },
+    "include": ["src"]
 }

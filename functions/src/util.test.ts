@@ -1,12 +1,8 @@
-import {describe, expect, test} from "vitest";
-import {isIncludeIgnorePath} from "./util";
+import { describe, expect, test } from 'vitest'
+import { isIncludeIgnorePath } from './util'
 
 describe('isIncludeIgnorePath', () => {
-    const ignoreList = [
-        '/favicon.ico',
-        '/static/favicon.ico',
-        '/.well-known/hello',
-    ]
+    const ignoreList = ['/favicon.ico', '/static/favicon.ico', '/.well-known/hello']
     test.each([
         ['/favicon.ico', true],
         ['/static/favicon.ico', true],
