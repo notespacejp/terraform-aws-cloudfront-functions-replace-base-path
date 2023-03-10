@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0](https://github.com/notespacejp/terraform-aws-cloudfront-functions-basic-auth/compare/v1.0.2...v1.1.0) (2023-03-10)
+
+
+### Features
+
+* added ignore path support ([b15b7a8](https://github.com/notespacejp/terraform-aws-cloudfront-functions-basic-auth/commit/b15b7a8d09eceadf3421f05f115410d4c79e3a74))
+
 ## [1.0.2](https://github.com/notespacejp/terraform-aws-cloudfront-functions-basic-auth/compare/v1.0.1...v1.0.2) (2023-03-10)
 
 
