@@ -5,7 +5,7 @@ function handler(event: AWSCloudFrontFunction.Event): AWSCloudFrontFunction.Requ
     const { request } = event
     const { headers } = request
 
-    const ignoreList = ['${ignoreList}']
+    const ignoreList = JSON.parse('${ignore_list}')
 
     if (isIncludeIgnorePath(request.uri, ignoreList)) return request
 

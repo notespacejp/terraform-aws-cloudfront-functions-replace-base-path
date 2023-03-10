@@ -10,9 +10,7 @@ function isIncludeIgnorePath(path, ignoreList) {
 function handler(event) {
     var request = event.request;
     var headers = request.headers;
-    var ignoreList = [
-        "${ignoreList}"
-    ];
+    var ignoreList = JSON.parse("${ignore_list}");
     if (isIncludeIgnorePath(request.uri, ignoreList)) return request;
     // basic authorization
     var authString = "Basic ${authString}";
