@@ -21,9 +21,6 @@ function handler(event) {
         headers: {
             "www-authenticate": {
                 value: "Basic"
-            },
-            "x-base-url": {
-                value: "request.uri: ".concat(request.uri)
             }
         }
     };

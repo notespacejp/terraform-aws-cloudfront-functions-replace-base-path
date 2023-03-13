@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1](https://github.com/notespacejp/terraform-aws-cloudfront-functions-basic-auth/compare/v1.1.0...v1.1.1) (2023-03-13)
+
+
+### Bug Fixes
+
+* fixed logic code ([8a62863](https://github.com/notespacejp/terraform-aws-cloudfront-functions-basic-auth/commit/8a62863c10db5ebfe39a5bd07518ca549a1316e5))
+
 ## [1.1.0](https://github.com/notespacejp/terraform-aws-cloudfront-functions-basic-auth/compare/v1.0.2...v1.1.0) (2023-03-10)
 
 
