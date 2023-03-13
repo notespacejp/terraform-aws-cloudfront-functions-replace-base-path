@@ -1,7 +1,7 @@
 'use strict';
 
 function isIncludeIgnorePath(path, ignoreList) {
-    return ignoreList.some(function(it) {
+    return !!ignoreList.find(function(it) {
         return path.startsWith(it);
     });
 }

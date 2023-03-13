@@ -18,7 +18,6 @@ function handler(event: AWSCloudFrontFunction.Event): AWSCloudFrontFunction.Requ
         statusDescription: 'Unauthorized',
         headers: {
             'www-authenticate': { value: 'Basic' },
-            'x-base-url': { value: `request.uri: ${request.uri}` },
         },
     }
 }
