@@ -18,21 +18,7 @@ variable "comment" {
 variable "publish" {
     type = bool
     default = true
-    description = "function is publish"
+    description = ""
+
 }
 
-variable "ignore_list" {
-    type = list(string)
-    default = []
-    description = "ignore url path list"
-}
-
-variable "user" {
-    type = string
-    description = "basic auth user"
-}
-
-variable "password" {
-    type = string
-    description = "basic auth password"
-}

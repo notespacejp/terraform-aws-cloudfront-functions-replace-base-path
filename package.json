@@ -1,5 +1,5 @@
 {
-  "name": "terraform-cloudfront-functions-basic-auth",
+  "name": "terraform-cloudfront-functions-replace-base-path",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",

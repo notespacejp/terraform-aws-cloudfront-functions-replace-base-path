@@ -1,23 +1,37 @@
-import { isIncludeIgnorePath } from './util'
+import { isMatchPath } from './utils'
+
+type PathListTable = {
+    pathList: RegExp[]
+    basePath: string
+    pathReplaceKey?: string
+}
+
+const table: PathListTable[] = (
+    [
+        {
+            pathList: ['/assets/(.*)', '/static/(.*)'],
+            basePath: '/__id__',
+            pathReplaceKey: '__id__',
+        },
+    ] as (Omit<PathListTable, 'pathList'> & { pathList: string[] })[]
+).map((it) => ({
+    ...it,
+    pathList: it.pathList.map((path) => new RegExp(path)),
+}))
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function handler(event: AWSCloudFrontFunction.Event): AWSCloudFrontFunction.Request | AWSCloudFrontFunction.Response {
     const { request } = event
-    const { headers } = request
 
-    const ignoreList = JSON.parse('${ignore_list}')
-
-    if (isIncludeIgnorePath(request.uri, ignoreList)) return request
-
-    // basic authorization
-    const authString = 'Basic ${authString}'
-    if (headers.authorization && headers.authorization.value === authString) return request
-
-    return {
-        statusCode: 401,
-        statusDescription: 'Unauthorized',
-        headers: {
-            'www-authenticate': { value: 'Basic' },
-        },
+    const prefix = request.headers.host.value.split('.')[0]
+    const pathTable = table.find(({ pathList }) => isMatchPath(request.uri, pathList))
+    if (!pathTable) {
+        return request
     }
+
+    request.uri = pathTable.pathReplaceKey
+        ? `${pathTable.basePath.replace(pathTable.pathReplaceKey, prefix)}${request.uri}`
+        : `${pathTable.basePath}${request.uri}`
+
+    return request
 }
