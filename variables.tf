@@ -18,7 +18,11 @@ variable "comment" {
 variable "publish" {
     type = bool
     default = true
-    description = ""
-
+    description = "is published function"
 }
 
+variable "pathTable" {
+    type = list(string)
+    default = []
+    description = "ignore url path list"
+}

@@ -6,18 +6,15 @@ type PathListTable = {
     pathReplaceKey?: string
 }
 
-const table: PathListTable[] = (
-    [
-        {
-            pathList: ['/assets/(.*)', '/static/(.*)'],
-            basePath: '/__id__',
-            pathReplaceKey: '__id__',
-        },
-    ] as (Omit<PathListTable, 'pathList'> & { pathList: string[] })[]
-).map((it) => ({
-    ...it,
-    pathList: it.pathList.map((path) => new RegExp(path)),
-}))
+const tableRawJson =
+    '${path_table}' || '[{"pathList":["/assets/(.*)","/static/(.*)"],"basePath":"/__id__","pathReplaceKey":"__id__"}]'
+
+const table: PathListTable[] = (JSON.parse(tableRawJson) as (Omit<PathListTable, 'pathList'> & { pathList: string[] })[]).map(
+    (it) => ({
+        ...it,
+        pathList: it.pathList.map((path) => new RegExp(path)),
+    }),
+)
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function handler(event: AWSCloudFrontFunction.Event): AWSCloudFrontFunction.Request | AWSCloudFrontFunction.Response {
